@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Celebration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        h1 {
+            color: #ff69b4;
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+        .celebration {
+            background-color: #fff0f5;
+            border: 2px solid #ff69b4;
+            padding: 30px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .celebration img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .celebration h2 {
+            color: #ff1493;
+            font-size: 2em;
+            margin: 0;
+        }
+        .celebration p {
+            font-size: 1.5em;
+            color: #333;
+        }
+        .social-link {
+            margin-top: 30px;
+            font-size: 1.2em;
+        }
+        .social-link a {
+            text-decoration: none;
+            color: #3b5998;
+            font-weight: bold;
+        }
+        .social-link a:hover {
+            text-decoration: underline;
+        }
+        .balloons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/bubblegum.png'), url('https://www.transparenttextures.com/patterns/white-mosaic.png');
+            background-size: cover, cover;
+            pointer-events: none;
+        }
+        .video-container {
+            margin: 30px auto;
+            width: 100%;
+            max-width: 560px;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="balloons"></div>
+    <h1>Happy Birthday!</h1>
+    <div class="celebration">
+        <img src="https://scontent.fceb2-2.fna.fbcdn.net/v/t1.15752-9/456038193_522045176858891_2051760775877965676_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeHTOAK31RTZIVr2zYCaVdtkzMtXDWOEMnbMy1cNY4QydqUVArMJx0OaUG3w0z-hzFRfulnRjfFnofGwjtWwJrzc&_nc_ohc=mXxWvhs9GDsQ7kNvgFH3aAn&_nc_ht=scontent.fceb2-2.fna&_nc_gid=ALzsv7QeDiLQu1r5WAcgWLJ&oh=03_Q7cD1QETVWoTHptZsgEx4UDBVu0D89x-K8MopCiqCPByKK38sA&oe=66F9E204" alt="Birthday Celebration">
+        <h2 id="person-name"></h2>
+        <p id="person-age"></p>
+    </div>
+
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/8QF9hM1MQwc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="social-link">
+        <p>Follow us on Facebook:</p>
+        <a href="https://www.facebook.com/profile.php?id=100071002510966" target="_blank">Visit our Facebook Page</a>
+    </div>
+
+    <script>
+        const person1 = {
+            name: "Cjie",
+            age: calculateAge(new Date("2004-08-31")), // Set the birthday date here
+        };
+
+        function calculateAge(birthday) {
+            const today = new Date();
+            let age = today.getFullYear() - birthday.getFullYear();
+            const monthDifference = today.getMonth() - birthday.getMonth();
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthday.getDate())) {
+                age--;
+            }
+            return age;
+        }
+
+        // Display person details
+        document.getElementById('person-name').innerText = `Happy Birthday, ${person1.name}!`;
+        document.getElementById('person-age').innerText = `You are now ${person1.age} years old.`;
+    </script>
+</body>
+</html>
+
+
